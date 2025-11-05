@@ -98,7 +98,7 @@ public class ProfileUploadRetrieval implements AssignmentEndpoint {
     try {
       var id = request.getParameter("id");
       if (id != null && (id.contains("../") || id.contains("..\\"))) {
-          throw new IllegalArgumentException("Path traversal attempt detected");
+        throw new IllegalArgumentException("Path traversal attempt detected");
       }
       var catPicture =
           new File(catPicturesDirectory, (id == null ? RandomUtils.nextInt(1, 11) : id) + ".jpg");
